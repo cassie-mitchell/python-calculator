@@ -1,0 +1,55 @@
+#define what should happen when your operators are used
+#this is done by using the keyword 'def' followed by what you want to name your method, 
+#followed by the inputs you want to have
+
+def add(x, y):
+  return x + y
+  
+def subtract(x, y):
+  return x - y
+  
+def multiply(x, y):
+  return x * y
+  
+def divide(x, y):
+  return x / y
+
+#print to the console to ask the user for input for the calculator
+print("What do you want to do:")
+print("1. Add")
+print("2. Subtract")
+print("3. Multiply")
+print("4. Divide")
+
+while True:
+#means the calculator will continue to request input and operate on it unless the break case is executed
+  #now actually get the input from the user using Python's predefined input method
+  choice = input("Enter 1 for add, 2 for subtract, 3 for multiply, 4 for divide: ")
+  
+  #use Python's 'if' method and the 'in' method to check if the user's input is in our list of operators
+  if choice in ('1', '2', '3', '4'):
+    #if it is then ask for two numbers to operate on and store them in two variables so we can use them later
+    #the input function turns everything into strings, so we have to state that this input will actually be numbers
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+    
+    #if user has entered 1 print the equation to the console and run the add method and print result to console
+    if choice == '1':
+      print(num1, "+", num2, "=", add(num1, num2))
+      
+    #else if user has entered 2 do the same but for the subtract method
+    elif choice == '2':
+      print(num1, "-", num2, "=", subtract(num1, num2))
+      
+    elif choice == '3':
+      print(num1, "*", num2, "=", multiply(num1, num2))
+
+    elif choice == '4':
+      print(num1, "/", num2, "=", divide(num1, num2))
+    
+    #break out of the 'if choice' loop once all the numbers have been checked
+    break
+  
+  #if the user has not entered 1,2,3, or 4 then print an error message to the console then go back to the start of the 'while true' loop
+  else:
+    print("Invalid Input")
